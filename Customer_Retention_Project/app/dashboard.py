@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+from pathlib import Path
 
 # ---------------------------------------------------
 # PAGE CONFIG
@@ -57,7 +58,11 @@ div[data-testid="metric-container"] {
 # LOAD DATA
 # ---------------------------------------------------
 
-df = pd.read_csv("../data/European_Bank.csv")
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+df = pd.read_csv(
+    BASE_DIR / "data" / "European_Bank.csv"
+)
 
 # ---------------------------------------------------
 # FEATURE ENGINEERING
